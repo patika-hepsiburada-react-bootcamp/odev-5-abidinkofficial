@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { TodoType } from "../../context/TodoContext"
+import { TodoType, useTodo } from "../../context/TodoContext"
 
 interface IProps {
   key: String,
@@ -7,9 +7,13 @@ interface IProps {
 }
 
 const Item: FC<IProps> = (props) => {
+  const { deleteTodo, completeTodo } = useTodo()
+
   return (
     <div className="Item">
-      {props.todo.content}
+      <button onClick={() => completeTodo(props.todo.id)}>✔</button>
+      <div>{props.todo.content} {props.todo.completed && "completed"}</div>
+      <button onClick={() => deleteTodo(props.todo.id)}>X</button>
     </div>
   )
 }
