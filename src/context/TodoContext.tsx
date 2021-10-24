@@ -55,12 +55,18 @@ export const TodoProvider: FC = ({ children }) => {
     setTodos([...data])
   }
 
+  const clearCompletedTodos = () => {
+    const data = todos.filter((todo) => todo.completed === false)
+    setTodos([...data])
+  }
+
   const values = {
     todos,
     setTodos,
     addTodo,
     deleteTodo,
-    completeTodo
+    completeTodo,
+    clearCompletedTodos
   }
   return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>
 }
