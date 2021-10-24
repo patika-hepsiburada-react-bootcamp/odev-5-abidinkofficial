@@ -30,9 +30,37 @@ export const TodoProvider: FC = ({ children }) => {
   ]
   const [todos, setTodos] = useState<TodoType[]>([...initialTodos])
 
+  const addTodo = (content: string) => setTodos((todos) =>
+    [
+      ...todos,
+      {
+        id: uuid(),
+        completed: false,
+        content: content
+      }
+    ]
+  )
+
+  const deleteTodo = (id: string) => {
+    const data = todos
+    const index = data.findIndex((todo) => todo.id === id)
+    data.splice(index, 1)
+    setTodos([...data])
+  }
+
+  const completeTodo = (id: string) => {
+    const data = todos
+    const index = data.findIndex((todo) => todo.id === id)
+    data[index].completed = !data[index].completed
+    setTodos([...data])
+  }
+
   const values = {
     todos,
-    setTodos
+    setTodos,
+    addTodo,
+    deleteTodo,
+    completeTodo
   }
   return <TodoContext.Provider value={values}>{children}</TodoContext.Provider>
 }
