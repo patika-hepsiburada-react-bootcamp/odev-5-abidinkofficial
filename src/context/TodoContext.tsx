@@ -1,4 +1,5 @@
 import { createContext, useState, useContext, FC } from "react"
+import { v4 as uuid } from "uuid"
 
 export interface TodoType {
   id: string,
@@ -12,17 +13,17 @@ const TodoContext = createContext<TodoContext>()
 export const TodoProvider: FC = ({ children }) => {
   const initialTodos: TodoType[] = [
     {
-      id: "1",
+      id: uuid(),
       completed: false,
       content: "Todo 1"
     },
     {
-      id: "2",
+      id: uuid(),
       completed: true,
       content: "Todo 2"
     },
     {
-      id: "3",
+      id: uuid(),
       completed: false,
       content: "Todo 3"
     }
