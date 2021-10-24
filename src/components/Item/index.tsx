@@ -1,5 +1,6 @@
 import { FC } from "react"
 import { TodoType, useTodo } from "../../context/TodoContext"
+import styles from "./Item.module.css"
 
 interface IProps {
   key: String,
@@ -10,10 +11,10 @@ const Item: FC<IProps> = (props) => {
   const { deleteTodo, completeTodo } = useTodo()
 
   return (
-    <div className="Item">
-      <button onClick={() => completeTodo(props.todo.id)}>✔</button>
-      <div>{props.todo.content} {props.todo.completed && "completed"}</div>
-      <button onClick={() => deleteTodo(props.todo.id)}>X</button>
+    <div className={styles["Item"]}>
+      <button className={styles["Item-complete"]} onClick={() => completeTodo(props.todo.id)}>{props.todo.completed && "✔"}</button>
+      <div className={`${styles["Item-content"]} ${props.todo.completed ? styles["Item-content-completed"] : ""}`}>{props.todo.content}</div>
+      <button className={styles["Item-delete"]} onClick={() => deleteTodo(props.todo.id)}>❌</button>
     </div>
   )
 }
