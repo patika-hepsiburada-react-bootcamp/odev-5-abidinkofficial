@@ -2,9 +2,12 @@
   width: 100%;
   display: flex;
   align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
 }
 
 .Form input {
+  margin-left: 27px;
   width: 100%;
   border: none;
   font-size: 24px;
@@ -23,7 +26,6 @@
   border-radius: 5px;
   width: 30px;
   height: 30px;
-  padding: 0;
   cursor: pointer;
   transition: all .2s;
 }

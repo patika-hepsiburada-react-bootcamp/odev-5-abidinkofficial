@@ -6,9 +6,10 @@ import styles from "./Container.module.css"
 
 const Container: FC = () => {
   const { todos, clearCompletedTodos } = useTodo()
-  const [leftCount, setLeftCount] = useState<number>(0)
-  const [status, setStatus] = useState<string>("all")
+  const [leftCount, setLeftCount] = useState<number>(0) // Incompleted todos count
+  const [status, setStatus] = useState<string>("all") // Display status to filter todos
 
+  // Count incomplete todos
   useEffect(() => {
     let count = 0
     todos.map((todo: TodoType) => !todo.completed && count++)
@@ -17,6 +18,7 @@ const Container: FC = () => {
 
   return (
     <div className={styles["Container"]}>
+      <h1>Todos</h1>
       <Form />
       <div className={styles["Container-list"]}>
         { status === "all" && todos.map((todo: TodoType) => <Item key={todo.id} todo={todo} />) }

@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, FC } from "react"
 import { v4 as uuid } from "uuid"
 
+// Default To-Do schema:
 export interface TodoType {
   id: string,
   completed: boolean,
@@ -11,25 +12,27 @@ export interface TodoType {
 const TodoContext = createContext<TodoContext>()
 
 export const TodoProvider: FC = ({ children }) => {
+  // Some initial data to display:
   const initialTodos: TodoType[] = [
     {
       id: uuid(),
       completed: false,
-      content: "Todo 1"
+      content: "A to-do"
     },
     {
       id: uuid(),
       completed: true,
-      content: "Todo 2"
+      content: "Another to-do"
     },
     {
       id: uuid(),
       completed: false,
-      content: "Todo 3"
+      content: "World's best to-do thing"
     }
   ]
   const [todos, setTodos] = useState<TodoType[]>([...initialTodos])
 
+  // Basic To-Do operations:
   const addTodo = (content: string) => setTodos((todos) =>
     [
       ...todos,

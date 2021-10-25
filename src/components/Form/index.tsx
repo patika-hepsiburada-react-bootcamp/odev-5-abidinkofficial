@@ -3,7 +3,7 @@ import { useTodo } from "../../context/TodoContext"
 import styles from "./Form.module.css"
 
 const Form: FC = () => {
-  const [content, setContent] = useState<string>("")
+  const [content, setContent] = useState<string>("") // Input value for adding a new todo
   const { addTodo } = useTodo()
 
   return (

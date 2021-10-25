@@ -3,8 +3,18 @@
   max-width: 600px;
   margin: 50px auto;
   padding: 5px;
-  border: 1px solid #eee;
+  border: 2px solid #eee;
   border-radius: 5px;
+}
+
+.Container h1 {
+  text-align: center;
+  background-color: #988cb4;
+  width: fit-content;
+  margin: 20px auto;
+  padding: 5px;
+  border-radius: 5px;
+  color: #211933;
 }
 
 .Container-list {
@@ -15,4 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 5px;
+  margin-left: 30px;
+  color: #aaa;
 }
