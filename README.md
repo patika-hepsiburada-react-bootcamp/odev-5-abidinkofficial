@@ -1,6 +1,6 @@
 # Ödev 5: TypeScript ile To-Do uygulaması
 
-Uygulama bağlantısı: []()
+Uygulama bağlantısı: [https://jolly-raman-ed56f4.netlify.app/](https://jolly-raman-ed56f4.netlify.app/)
 
 ## Kullanılan kütüphaneler
 * React
